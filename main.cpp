@@ -22,22 +22,6 @@ double inverseSensorModel(double x, double y, double theta, double xi, double yi
     return 0.4;
 }
 
-void occupancyGridMapping(double Robotx, double Roboty, double Robottheta, double sensorData[])
-{
-    // 1- Generate a grid (size 300x150) and then loop through all the cells
-    // 2- Compute the center of mass of each cell xi and yi
-    // double xi = x * gridWidth + gridWidth / 2 - robotXOffset;
-    // double yi = -(y * gridHeight + gridHeight / 2) + robotYOffset;
-    // 3- Check if each cell falls under the perceptual field of the measurements
-    double grid[300][150];
-    for (int i = 0; i < 300; i++)
-        for (int j = 0; j < i; j++)
-        {
-            double xi = Robotx * gridWidth + gridWidth / 2 - robotXOffset;
-            double yi = Roboty * gridHeight + gridHeight / 2 - robotYOffset;
-            l[i][j] = l[i][j] + inverseSensorModel(Robotx, Roboty, Robottheta, xi, yi, sensorData);
-        }
-}
 
 int main()
 {
